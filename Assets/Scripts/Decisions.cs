@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 public class Decisions : MonoBehaviour
 {
     [SerializeField] public int numberA, numberB, numberC;
@@ -21,6 +22,7 @@ public class Decisions : MonoBehaviour
     public void QuitGame()
     {
         Debug.Log("Quit");
+        EditorApplication.ExitPlaymode();
         Application.Quit();
     }
 }
