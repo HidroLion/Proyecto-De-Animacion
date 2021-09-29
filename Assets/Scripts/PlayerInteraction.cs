@@ -5,12 +5,16 @@ using TMPro;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    [Header("Puerta")]
     [SerializeField] GameObject doorKey;
     [SerializeField] GameObject door;
+
+    [Header("Text")]
     [SerializeField] GameObject text;
 
     DoorController doorController;
     TextMeshPro textMeshPro;
+
     bool interactiveArea;
 
     private void Start()
@@ -40,7 +44,7 @@ public class PlayerInteraction : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             interactiveArea = true;
-
+            Debug.Log("Player in Area");
             ShowText();
         }
     }
@@ -48,14 +52,28 @@ public class PlayerInteraction : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
+        {
             interactiveArea = false;
+
+            VanishText();
+        }
     }
 
     void ShowText()
     {
         for (int i = 0; i < 256; i++)
         {
-             
+            textMeshPro.color =
+               new Vector4(textMeshPro.color.r, textMeshPro.color.g, textMeshPro.color.b, Mathf.Lerp(0, 255, 5));
+        }
+    }
+
+    void VanishText()
+    {
+        for (int i = 0; i < 256; i++)
+        {
+            textMeshPro.color =
+               new Vector4(textMeshPro.color.r, textMeshPro.color.g, textMeshPro.color.b, Mathf.Lerp(255, 0, 5));
         }
     }
 }

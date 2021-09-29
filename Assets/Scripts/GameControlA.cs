@@ -7,15 +7,16 @@ public class GameControlA : MonoBehaviour
     [SerializeField]
     private Transform[] pictures;
 
+    [SerializeField] GameObject door;
 
-   
+    DoorController doorController;
     public static bool youWin;
     
     bool gano;
 
     void Awake()
     {
-        
+        doorController = door.GetComponent<DoorController>();
         gano = false;
         youWin = false;
     }
@@ -30,13 +31,13 @@ public class GameControlA : MonoBehaviour
 
             
             if (gano == false)
-            {
-              
+            {            
                 gano = true;
-               
+                doorController.OpenDoor();
             }
         }
     }
+
     public bool IsWin()
     {
         return youWin;
