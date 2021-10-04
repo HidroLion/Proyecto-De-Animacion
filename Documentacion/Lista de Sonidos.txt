@@ -1,0 +1,51 @@
+[Sonidos Ambientales]
+
+> Eco de Cueva
+> Gotas de Agua
+> Murcielagos
+> Arena cayendo
+
+[Sonidos de Entorno]
+
+> Compuerta de piedra abriendose
+> Giro del Puzzle
+
+[Sonidos del Personaje]
+
+> Pasos
+> Gestos Vocales
+> Rosamiento de la Ropa
+> Recibir daño
+	> Golpe
+	> Queja
+> Muerte del Personaje
+
+[Sonidos Otros Personajes]
+
+> Golem
+	> Movimiento
+	> Golpear
+	> Respiracion
+	> Gestos Vocales
+	> Muerte
+
+> Perro
+	> Ladrido
+	> Pasos
+	> Movimiento
+	> Muerte
+
+> Zombie
+	> Respiracion
+	> Pasos
+	> Atacar
+	> Exaltación
+
+[Sonidos de FeedBack]
+
+> Presionar Boton
+> Iniciar Juego
+> Final I, II, y III
+> Muerte
+> Resolver Puzzle
+
