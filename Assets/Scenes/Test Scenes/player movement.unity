@@ -471,6 +471,7 @@ MonoBehaviour:
   speed: 6
   runSpeed: 9
   rotateSpeed: 90
+  Anim: {fileID: 1661585982}
 --- !u!95 &1661585982
 Animator:
   serializedVersion: 3
@@ -480,7 +481,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661585980}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: fea4a704f4e37104eae3102d9be6b98f, type: 3}
   m_Controller: {fileID: 9100000, guid: 605eaa672d92d4641b2e36a3d5e69c25, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0

@@ -9,13 +9,14 @@ public class PlayerMovement : MonoBehaviour
     public float rotateSpeed = 90f;
 
     float gravity = 20.0f;
-
+    public Animator Anim;
     private Vector3 moveDirection = Vector3.zero;
     private bool grounded = false;
     void FixedUpdate()
     {
-        if (grounded)
-        {
+       
+            if (grounded)
+            {
             // We are grounded, so recalculate movedirection directly from axes
             moveDirection = new Vector3(0, 0, Input.GetAxis("Vertical")); //Determine the player's forward speed based upon the input.
 
@@ -39,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         transform.Rotate(0, rotateSpeed * Time.deltaTime * Input.GetAxis("Horizontal"), 0);
 
         grounded = (CollisionFlags.CollidedBelow) != 0;
+        Anim.SetFloat("Ymovement", Input.GetAxis("Vertical"));
     }
 
 }
