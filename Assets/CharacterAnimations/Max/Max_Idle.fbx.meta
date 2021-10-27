@@ -9,6 +9,9 @@ ModelImporter:
   - first:
       74: 7467675658847103767
     second: RIG-max|Max_Walk
+  - first:
+      74: 335871433559476204
+    second: Max_Idle
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -100,11 +103,29 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    motionNodeName: RIG-max/root
+    motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
+      in configuration does not match rotation in animation file:\n\t'ORG-toe.L'
+      : rotation error = 11.203133 deg\n\t'ORG-toe.R' : rotation error = 11.840223
+      deg\n"
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'RIG-max|Max_Idle' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'ORG-shoulder.R' has translation animation
+      that will be discarded.\n\t'ORG-f_ring.01.R' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'ORG-toe.L' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'RIG-max|Max_Walk' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'ORG-upper_arm.L'
+      has scale animation that will be discarded.\n\t'ORG-hand.L' has scale animation
+      that will be discarded.\n\t'ORG-f_ring.01.L' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'ORG-upper_arm.R' has
+      scale animation that will be discarded.\n\t'ORG-hand.R' has scale animation
+      that will be discarded.\n\t'ORG-f_ring.01.R' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'ORG-toe.L' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'ORG-toe.R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -121,8 +142,8 @@ ModelImporter:
       name: Max_Idle
       takeName: RIG-max|Max_Idle
       internalID: 0
-      firstFrame: 1
-      lastFrame: 134
+      firstFrame: 0
+      lastFrame: 260
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -181,7 +202,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
@@ -2232,12 +2253,12 @@ ModelImporter:
       parentName: lipbot_stretch
       position: {x: -1.8626451e-11, y: 0.00029339897, z: -0.000015199789}
       rotation: {x: -0.0953852, y: 0.00000011921557, z: 0.000000023661524, w: 0.9954404}
-      scale: {x: 1.0681376, y: 0.8839213, z: 1.0621245}
+      scale: {x: 1.0681376, y: 0.88392127, z: 1.0621241}
     - name: DEF-lipbot
       parentName: lip2bot_ctrl
       position: {x: 6.984919e-11, y: -8.381903e-10, z: 1.9557773e-10}
       rotation: {x: 0.15323253, y: -0.00000012039206, z: -0.000000016674642, w: 0.9881902}
-      scale: {x: 0.9372499, y: 0.9408967, z: 1.138613}
+      scale: {x: 0.9372499, y: 0.9408967, z: 1.1386132}
     - name: DEF-lipbot_end
       parentName: DEF-lipbot
       position: {x: 0, y: 0.00013063694, z: 0}
@@ -3707,12 +3728,12 @@ ModelImporter:
       parentName: liptop3_stretch.r
       position: {x: 0.000038589034, y: 0.00026095734, z: -0.000008066725}
       rotation: {x: -0.14054534, y: -0.659097, z: 0.65909714, w: 0.3338101}
-      scale: {x: 0.999637, y: 1.0020127, z: 0.9983715}
+      scale: {x: 0.9996371, y: 1.0020127, z: 0.9983715}
     - name: DEF-liptop3.r
       parentName: lip2top3_ctrl.r
       position: {x: -1.8626451e-11, y: 6.61239e-10, z: -4.2840836e-10}
       rotation: {x: 0.25908336, y: 0.6174694, z: -0.61746895, w: 0.4127221}
-      scale: {x: 1.0225515, y: 0.9783461, z: 0.9996658}
+      scale: {x: 1.0225515, y: 0.978346, z: 0.9996658}
     - name: DEF-liptop3.r_end
       parentName: DEF-liptop3.r
       position: {x: 0, y: 0.00013072978, z: 0}
@@ -3777,12 +3798,12 @@ ModelImporter:
       parentName: liptop3_stretch.l
       position: {x: -0.000038589107, y: 0.00026095725, z: -0.0000080655755}
       rotation: {x: 0.14054535, y: -0.6590971, z: 0.6590971, w: -0.3338101}
-      scale: {x: 0.9983509, y: 1.0100921, z: 0.9920944}
+      scale: {x: 0.99835074, y: 1.0100921, z: 0.99209446}
     - name: DEF-liptop3.l
       parentName: lip2top3_ctrl.l
       position: {x: -1.7811544e-10, y: -0.0000000013579847, z: 6.0943417e-10}
       rotation: {x: -0.25908312, y: 0.6174693, z: -0.61746913, w: -0.4127222}
-      scale: {x: 1.117316, y: 0.89800173, z: 0.99833006}
+      scale: {x: 1.1173165, y: 0.8980019, z: 0.9983302}
     - name: DEF-liptop3.l_end
       parentName: DEF-liptop3.l
       position: {x: 0, y: 0.00013072978, z: 0}
@@ -3847,12 +3868,12 @@ ModelImporter:
       parentName: liptop_stretch
       position: {x: -9.3132255e-12, y: 0.00019060996, z: 0.000007201517}
       rotation: {x: -0.99652773, y: -0.00000000867801, z: 0.000000105864, w: -0.08326192}
-      scale: {x: 1.0890714, y: 0.84982, z: 1.0846881}
+      scale: {x: 1.0890714, y: 0.84982, z: 1.0846883}
     - name: DEF-liptop
       parentName: lip2top_ctrl
       position: {x: 8.381903e-11, y: -3.72529e-10, z: -4.2840836e-10}
       rotation: {x: 0.9984447, y: 0.000000005811717, z: -3.2456174e-10, w: -0.055751227}
-      scale: {x: 0.918493, y: 1.0899755, z: 0.999462}
+      scale: {x: 0.91849303, y: 1.0899755, z: 0.99946177}
     - name: DEF-liptop_end
       parentName: DEF-liptop
       position: {x: 0, y: 0.00013063695, z: 0}
@@ -3977,12 +3998,12 @@ ModelImporter:
       parentName: liptop1_stretch.l
       position: {x: 0.000015909092, y: 0.0002230825, z: 0.0000008457829}
       rotation: {x: -0.9770046, y: 0.11172925, z: -0.111730665, w: -0.14316048}
-      scale: {x: 1.0713761, y: 0.8734962, z: 1.0854601}
+      scale: {x: 1.071376, y: 0.873496, z: 1.0854602}
     - name: DEF-liptop1.l
       parentName: lip2top1_ctrl.l
       position: {x: 9.313225e-11, y: 8.9174135e-10, z: -6.7986544e-10}
       rotation: {x: 0.95689493, y: -0.18303837, z: 0.18303914, w: -0.13170287}
-      scale: {x: 1.3244432, y: 0.65015024, z: 1.194646}
+      scale: {x: 1.3244443, y: 0.65014994, z: 1.1946459}
     - name: DEF-liptop1.l_end
       parentName: DEF-liptop1.l
       position: {x: 0, y: 0.00013083658, z: 0}
@@ -4042,7 +4063,7 @@ ModelImporter:
       parentName: lip2top1_ctrl.r
       position: {x: 0, y: 9.49949e-10, z: 5.5879353e-11}
       rotation: {x: 0.95689493, y: 0.18303843, z: -0.18303922, w: -0.13170311}
-      scale: {x: 1.2998849, y: 0.6684075, z: 1.179998}
+      scale: {x: 1.2998849, y: 0.66840744, z: 1.179998}
     - name: DEF-liptop1.r_end
       parentName: DEF-liptop1.r
       position: {x: 0, y: 0.00013083658, z: 0}
@@ -4162,7 +4183,7 @@ ModelImporter:
       parentName: lip2top2_ctrl.r
       position: {x: -5.5879353e-11, y: -0.0000000014086253, z: -5.587935e-10}
       rotation: {x: 0.8573913, y: 0.35689428, z: -0.35689524, w: -0.100660145}
-      scale: {x: 1.4982653, y: 0.49790764, z: 1.407995}
+      scale: {x: 1.4982653, y: 0.49790764, z: 1.4079951}
     - name: DEF-liptop2.r_end
       parentName: DEF-liptop2.r
       position: {x: 0, y: 0.00011896964, z: 0}
@@ -4802,12 +4823,12 @@ ModelImporter:
       parentName: waistband2_stretch.FR
       position: {x: 0.000011800269, y: 0.00046640227, z: -0.000115937495}
       rotation: {x: -0.006297854, y: 0.00000011643252, z: 0.0000000023590534, w: 0.9999802}
-      scale: {x: 1.0368783, y: 0.9301501, z: 1.0368611}
+      scale: {x: 1.0368783, y: 0.9301503, z: 1.0368611}
     - name: DEF-waistbandd3.FR
       parentName: waistband3.FR
       position: {x: -4.6566128e-12, y: -8.9698005e-10, z: 1.1525116e-10}
       rotation: {x: 0.010098218, y: -0.000000117875544, z: 9.8943895e-11, w: 0.99994904}
-      scale: {x: 0.74012905, y: 1.8246086, z: 0.7404991}
+      scale: {x: 0.74012905, y: 1.8246087, z: 0.7404991}
     - name: DEF-waistbandd3.FR_end
       parentName: DEF-waistbandd3.FR
       position: {x: 0, y: 0.00092796533, z: 0}
@@ -4837,12 +4858,12 @@ ModelImporter:
       parentName: waistband2_stretch.BK
       position: {x: -1.3038516e-10, y: 0.00056679634, z: 0.000008741496}
       rotation: {x: 0.032539356, y: 0.0000000013904147, z: 0.0000000020116755, w: 0.99947053}
-      scale: {x: 1.1193995, y: 0.7995706, z: 1.118457}
+      scale: {x: 1.1193995, y: 0.7995705, z: 1.118457}
     - name: DEF-waistband3.BK
       parentName: waistband3.BK
       position: {x: 4.6566126e-11, y: -3.1199304e-10, z: -5.151378e-11}
       rotation: {x: -0.04323424, y: 0.000000001913037, z: 0.000000023110275, w: 0.99906504}
-      scale: {x: 0.89338654, y: 1.2103139, z: 0.9249569}
+      scale: {x: 0.89338654, y: 1.2103139, z: 0.9249568}
     - name: DEF-waistband3.BK_end
       parentName: DEF-waistband3.BK
       position: {x: 0, y: 0.00040840654, z: 0}
@@ -4872,12 +4893,12 @@ ModelImporter:
       parentName: waistband2_stretch.BK.L
       position: {x: 0.00010192504, y: 0.00057473895, z: -0.000013433285}
       rotation: {x: 0.041099023, y: -0.07296877, z: -0.04741311, w: 0.99535847}
-      scale: {x: 1.0790834, y: 0.8595295, z: 1.0800569}
+      scale: {x: 1.0790838, y: 0.8595295, z: 1.0800568}
     - name: DEF-waistband3.BK.L
       parentName: waistband3.BK.L
       position: {x: -1.0244548e-10, y: -5.5879353e-11, z: -4.6566128e-12}
       rotation: {x: -0.033533238, y: 0.17696594, z: 0.15735269, w: 0.9709782}
-      scale: {x: 1.0162306, y: 1.016809, z: 0.9692398}
+      scale: {x: 1.0162307, y: 1.0168087, z: 0.9692399}
     - name: DEF-waistband3.BK.L_end
       parentName: DEF-waistband3.BK.L
       position: {x: 0, y: 0.00044819113, z: 0}
@@ -4907,12 +4928,12 @@ ModelImporter:
       parentName: waistband2_stretch.FR.L
       position: {x: 0.000005466724, y: 0.00095000333, z: 0.000035495395}
       rotation: {x: -0.017415665, y: -0.067899264, z: -0.027948381, w: 0.99714863}
-      scale: {x: 1.0000024, y: 1.000006, z: 1.0000025}
+      scale: {x: 1.0000024, y: 1.0000054, z: 1.0000025}
     - name: DEF-waistband3.FR.L
       parentName: waistband3.FR.L
       position: {x: -1.4901161e-10, y: 7.1711836e-10, z: -6.0535965e-11}
       rotation: {x: -0.0075433087, y: 0.15380986, z: 0.06950343, w: 0.98562413}
-      scale: {x: 0.9932737, y: 1.0049921, z: 1.002493}
+      scale: {x: 0.9932737, y: 1.0049927, z: 1.002493}
     - name: DEF-waistband3.FR.L_end
       parentName: DEF-waistband3.FR.L
       position: {x: 0, y: 0.0010119335, z: 0}
@@ -4942,12 +4963,12 @@ ModelImporter:
       parentName: waistband2_stretch.L
       position: {x: 0.000014282414, y: 0.00070408685, z: 0.0000068242753}
       rotation: {x: -0.0028383678, y: -0.016611878, z: 0.07538898, w: 0.9970118}
-      scale: {x: 1.0506876, y: 0.9041609, z: 1.0538118}
+      scale: {x: 1.0506879, y: 0.9041609, z: 1.0538118}
     - name: DEF-waistband3.L
       parentName: waistband3.L
       position: {x: 8.1490726e-12, y: -2.8172506e-10, z: 2.3283063e-11}
       rotation: {x: 0.0072111683, y: 0.16178252, z: -0.06406001, w: 0.9847187}
-      scale: {x: 0.99699146, y: 1.052478, z: 0.9532977}
+      scale: {x: 0.99699134, y: 1.052478, z: 0.9532974}
     - name: DEF-waistband3.L_end
       parentName: DEF-waistband3.L
       position: {x: 0, y: 0.0006551081, z: 0}
@@ -4977,12 +4998,12 @@ ModelImporter:
       parentName: waistband2_stretch.FR.R
       position: {x: -0.000102822516, y: 0.0009371575, z: -0.000068778005}
       rotation: {x: -0.6577695, y: 0.016549556, z: 0.7529552, w: -0.0111266235}
-      scale: {x: 0.94522464, y: 1.1198299, z: 0.94501734}
+      scale: {x: 0.94522464, y: 1.1198295, z: 0.94501734}
     - name: DEF-waistband3.FR.R
       parentName: waistband3.FR.R
       position: {x: 1.0244548e-10, y: -5.9604643e-10, z: 5.5879353e-11}
       rotation: {x: 0.5892818, y: 0.02878348, z: -0.807026, w: -0.02505083}
-      scale: {x: 1.0480125, y: 0.90759534, z: 1.0513519}
+      scale: {x: 1.0480125, y: 0.90759563, z: 1.051352}
     - name: DEF-waistband3.FR.R_end
       parentName: DEF-waistband3.FR.R
       position: {x: 0, y: 0.0010119335, z: 0}
@@ -5012,12 +5033,12 @@ ModelImporter:
       parentName: waistband2_stretch.R
       position: {x: -0.0000145585645, y: 0.00070408237, z: 0.000006709825}
       rotation: {x: -0.002923086, y: 0.016609289, z: -0.07519483, w: 0.99702626}
-      scale: {x: 1.0225642, y: 0.9551434, z: 1.0240899}
+      scale: {x: 1.0225642, y: 0.9551434, z: 1.0240903}
     - name: DEF-waistband3.R
       parentName: waistband3.R
       position: {x: 1.618173e-10, y: 2.4680047e-10, z: 3.3760442e-11}
       rotation: {x: 0.0065251878, y: -0.16178896, z: 0.062364694, w: 0.9848312}
-      scale: {x: 0.9979364, y: 1.0242574, z: 0.9783963}
+      scale: {x: 0.9979367, y: 1.0242575, z: 0.97839564}
     - name: DEF-waistband3.R_end
       parentName: DEF-waistband3.R
       position: {x: 0, y: 0.00058341754, z: 0}
@@ -5047,12 +5068,12 @@ ModelImporter:
       parentName: waistband2_stretch.BK.R
       position: {x: -0.00010192496, y: 0.0005747392, z: -0.000013432949}
       rotation: {x: 0.04109903, y: 0.0729685, z: 0.04741308, w: 0.99535847}
-      scale: {x: 1.0779784, y: 0.8612598, z: 1.0789404}
+      scale: {x: 1.0779781, y: 0.8612598, z: 1.0789404}
     - name: DEF-waistband3.BK.R
       parentName: waistband3.BK.R
       position: {x: -2.7939677e-11, y: -2.4680047e-10, z: 3.259629e-11}
       rotation: {x: -0.033533275, y: -0.17696567, z: -0.15735257, w: 0.97097826}
-      scale: {x: 1.0159832, y: 1.0165733, z: 0.9696583}
+      scale: {x: 1.0159836, y: 1.0165731, z: 0.9696583}
     - name: DEF-waistband3.BK.R_end
       parentName: DEF-waistband3.BK.R
       position: {x: 0, y: 0.00044819107, z: 0}
