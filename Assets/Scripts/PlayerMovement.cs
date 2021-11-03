@@ -41,6 +41,10 @@ public class PlayerMovement : MonoBehaviour
 
         grounded = (CollisionFlags.CollidedBelow) != 0;
         Anim.SetFloat("Ymovement", Input.GetAxis("Vertical"));
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Anim.SetTrigger("Attack");
+        }
     }
-
+    
 }
