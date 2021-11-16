@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyAnimationControl : MonoBehaviour
 {
     public Animator anim;
-
+    public Collider fightTrigger;
+    public string[] dialogueLines;
   
    
     public void RecieveDamage() {
@@ -18,7 +19,17 @@ public class EnemyAnimationControl : MonoBehaviour
     {
         anim.SetTrigger("Attack");
     }
-
+    public void StartDialogue(string[] _lines) {
+        Dialogue.instance.SetDialogue(_lines);
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.GetComponent<PlayerMovement>())
+        {
+            StartDialogue(dialogueLines);
+            fightTrigger.enabled = false;
+        }
+    }
     void Update()
     {
         

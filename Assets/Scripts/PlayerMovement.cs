@@ -4,47 +4,57 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-   public float speed = 6.0f;
-   public float runSpeed = 9.0f;
-    public float rotateSpeed = 90f;
 
-    float gravity = 20.0f;
-    public Animator Anim;
-    private Vector3 moveDirection = Vector3.zero;
-    private bool grounded = false;
+
+    CharacterController Controller;
+
+    public float Speed;
+    public Animator anim;
+    public Transform Cam;
+    public Transform hips;
+  
+    // Start is called before the first frame update
+    void Start()
+    {
+
+        Controller = GetComponent<CharacterController>();
+     
+    }
+
+    // Update is called once per frame
     void FixedUpdate()
     {
-       
-            if (grounded)
-            {
-            // We are grounded, so recalculate movedirection directly from axes
-            moveDirection = new Vector3(0, 0, Input.GetAxis("Vertical")); //Determine the player's forward speed based upon the input.
+      
+        transform.rotation = Quaternion.Euler(0, Cam.transform.localRotation.eulerAngles.y, 0);
+        float Horizontal = Input.GetAxis("Horizontal") * Speed * Time.deltaTime;
+        float Vertical = Input.GetAxis("Vertical") * Speed * Time.deltaTime;
+        
+        Vector3 Movement = Cam.transform.right * Horizontal + Cam.transform.forward * Vertical;
+        Movement.y = 0f;
 
-            moveDirection = transform.TransformDirection(moveDirection); //make the direction relative to the player.
-            if (Input.GetButton("Jump"))
-            {
-                moveDirection *= runSpeed;
-            }
-            else
-            {
-                moveDirection *= speed;
-            }
-        }
 
-        // Apply gravity
-        moveDirection.y -= gravity * Time.deltaTime;
 
-        // Move the controller
-        CharacterController controller = GetComponent<CharacterController>();
-        var flags = controller.Move(moveDirection * Time.deltaTime);
-        transform.Rotate(0, rotateSpeed * Time.deltaTime * Input.GetAxis("Horizontal"), 0);
+        Controller.Move(Movement);
 
-        grounded = (CollisionFlags.CollidedBelow) != 0;
-        Anim.SetFloat("Ymovement", Input.GetAxis("Vertical"));
-        if (Input.GetButtonDown("Fire1"))
+        if (Movement.magnitude != 0f)
         {
-            Anim.SetTrigger("Attack");
+            anim.SetBool("Walking",true);
+            transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Cam.GetComponent<CameraControl>().sensivity * Time.deltaTime);
+
+
+            Quaternion CamRotation = Cam.rotation;
+            CamRotation.x = 0f;
+            CamRotation.z = 0f;
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, CamRotation, 0.1f);
+            
         }
+        else
+        {
+            anim.SetBool("Walking", false);
+
+        }
+
     }
-    
+
 }

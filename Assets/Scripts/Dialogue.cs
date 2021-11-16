@@ -7,6 +7,7 @@ using TMPro;
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText;
+    public static Dialogue instance;
     public string[] sentences;
     bool DialogueActive;
     int currentSentence;
@@ -14,6 +15,16 @@ public class Dialogue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(instance!= null)
+        {
+            Destroy(this.gameObject);
+
+        }
+        else
+        {
+            instance = this;
+
+        }
         currentSentence = 0;
         DialogueActive = false;
            sentences = new string[1];
