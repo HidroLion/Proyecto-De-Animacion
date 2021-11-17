@@ -25,8 +25,11 @@ public class GameControlA : MonoBehaviour
         if ((pictures[0].rotation.z == 0 || pictures[0].rotation.z == 360) && (pictures[1].rotation.z == 0 || pictures[1].rotation.z == 360) && (pictures[2].rotation.z == 0 || pictures[2].rotation.z == 360) && (pictures[3].rotation.z == 0 || pictures[3].rotation.z == 360))
         {
             Debug.Log("Gano");
+
+
             youWin = true;
-         
+
+            
             if (gano == false)
             {            
                 gano = true;

@@ -4,21 +4,15 @@ using UnityEngine;
 
 public class TouchRotateA : MonoBehaviour
 {
-    AudioSource audioSource;
-
-    [SerializeField] AudioClip flipSound;
-
-    private void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
-
+    // Start is called before the first frame update
+    //[SerializeField] AudioSource flipSound;
     private void OnMouseDown()
     {
-        if (!GameControlA.youWin && PlayerInteraction.ActivePuzzle())
+        if (!GameControlA.youWin)
         {
             transform.Rotate(0f, 0f, 90f);
-            audioSource.PlayOneShot(flipSound);
+            // flipSound.Play();
         }
+
     }
 }

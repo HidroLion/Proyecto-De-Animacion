@@ -6,15 +6,21 @@ using TMPro;
 public class PlayerInteraction : MonoBehaviour
 {
     [Header("Puerta")]
+    [SerializeField] GameObject doorKey;
     [SerializeField] GameObject door;
 
-    DoorController doorController;
+    [Header("Text")]
+    [SerializeField] GameObject text;
 
-    static bool interactiveArea;
+    DoorController doorController;
+    TextMeshPro textMeshPro;
+
+    bool interactiveArea;
 
     private void Start()
     {
         doorController = door.GetComponent<DoorController>();
+        textMeshPro = text.GetComponent<TextMeshPro>();
 
         interactiveArea = false;
     }
@@ -39,6 +45,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             interactiveArea = true;
             Debug.Log("Player in Area");
+            ShowText();
         }
     }
 
@@ -46,12 +53,27 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            interactiveArea = false;           
+            interactiveArea = false;
+
+            VanishText();
         }
     }
-    
-    public static bool ActivePuzzle()
+
+    void ShowText()
     {
-        return interactiveArea;
+        for (int i = 0; i < 256; i++)
+        {
+            textMeshPro.color =
+               new Vector4(textMeshPro.color.r, textMeshPro.color.g, textMeshPro.color.b, Mathf.Lerp(0, 255, 5));
+        }
+    }
+
+    void VanishText()
+    {
+        for (int i = 0; i < 256; i++)
+        {
+            textMeshPro.color =
+               new Vector4(textMeshPro.color.r, textMeshPro.color.g, textMeshPro.color.b, Mathf.Lerp(255, 0, 5));
+        }
     }
 }
