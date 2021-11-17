@@ -11,8 +11,7 @@ public class CameraControl : MonoBehaviour
     public Transform lookAt;
 
     public Transform Player;
-    public Transform model;
-
+  
     public float distance = 10.0f;
     private float currentX = 0.0f;
     private float currentY = 0.0f;
@@ -30,7 +29,7 @@ public class CameraControl : MonoBehaviour
    
     float tempDistance;
     Vector3 offset = new Vector3(0, 2, 0);
-    private void FixedUpdate()
+    private void Update()
     {
         currentX += -Input.GetAxis("Mouse X") * sensivity * Time.deltaTime;
         currentY += Input.GetAxis("Mouse Y") * sensivity * Time.deltaTime;
@@ -68,6 +67,6 @@ public class CameraControl : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(model.position + offset, gameObject.transform.position);
+        Gizmos.DrawLine(lookAt.position , gameObject.transform.position);
     }
 }

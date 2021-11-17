@@ -22,10 +22,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
       
-        transform.rotation = Quaternion.Euler(0, Cam.transform.localRotation.eulerAngles.y, 0);
+        transform.rotation = Quaternion.Euler(0, Cam.transform.localRotation.eulerAngles.y+180, 0);
         float Horizontal =  0; // Input.GetAxis("Horizontal") * Speed * Time.deltaTime;
         float Vertical = Input.GetAxis("Vertical") * Speed * Time.deltaTime;
         
