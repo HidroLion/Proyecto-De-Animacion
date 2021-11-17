@@ -12,10 +12,12 @@ public class Dialogue : MonoBehaviour
     bool DialogueActive;
     int currentSentence;
     public GameObject DialogueSquare;
+   
     // Start is called before the first frame update
     void Start()
     {
-        if(instance!= null)
+  
+        if (instance!= null)
         {
             Destroy(this.gameObject);
 
@@ -41,18 +43,26 @@ public class Dialogue : MonoBehaviour
     public void SetDialogueText(string _text) {
         dialogueText.text = _text;
     }
+   
+    
     public void NextSentence() {
-        if (currentSentence + 1 < sentences.Length)
-        {
-            currentSentence++;
-            SetDialogueText(sentences[currentSentence]);
-        }
-        else {
-            DialogueActive = false;
-            currentSentence = 0;
-            DialogueSquare.SetActive(false);
-        }
-      
+
+        
+            if (currentSentence + 1 < sentences.Length)
+            {
+                currentSentence++;
+                SetDialogueText(sentences[currentSentence]);
+            }
+            else
+            {
+                DialogueActive = false;
+                currentSentence = 0;
+                DialogueSquare.SetActive(false);
+            if (DecisionMaking.instance.enemy != null) {
+                DecisionMaking.instance.StartDecisionMaking();   
+            }    
+            }
+       
 
     }
     // Update is called once per frame

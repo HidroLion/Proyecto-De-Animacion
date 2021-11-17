@@ -36,7 +36,7 @@ public class CameraControl : MonoBehaviour
         currentY += Input.GetAxis("Mouse Y") * sensivity * Time.deltaTime;
 
         currentY = Mathf.Clamp(currentY, YMin, YMax);
-
+     
         Vector3 Direction = new Vector3(0, 0, -tempDistance);
         Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
         transform.position = lookAt.position + rotation * Direction;

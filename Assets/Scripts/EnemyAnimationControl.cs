@@ -7,8 +7,8 @@ public class EnemyAnimationControl : MonoBehaviour
     public Animator anim;
     public Collider fightTrigger;
     public string[] dialogueLines;
-  
-   
+    public string talkOption;
+    public string talkResponse;
     public void RecieveDamage() {
         anim.SetTrigger("DamageTaken");
     }
@@ -28,6 +28,8 @@ public class EnemyAnimationControl : MonoBehaviour
         {
             StartDialogue(dialogueLines);
             fightTrigger.enabled = false;
+           
+            other.transform.parent.GetComponentInChildren<DecisionMaking>().enemy=this;
         }
     }
     void Update()

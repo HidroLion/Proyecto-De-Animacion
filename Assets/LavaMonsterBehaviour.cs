@@ -15,4 +15,8 @@ public class LavaMonsterBehaviour : EnemyAnimationControl
     {
         
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
 }

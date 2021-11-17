@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     {
       
         transform.rotation = Quaternion.Euler(0, Cam.transform.localRotation.eulerAngles.y, 0);
-        float Horizontal = Input.GetAxis("Horizontal") * Speed * Time.deltaTime;
+        float Horizontal =  0; // Input.GetAxis("Horizontal") * Speed * Time.deltaTime;
         float Vertical = Input.GetAxis("Vertical") * Speed * Time.deltaTime;
         
         Vector3 Movement = Cam.transform.right * Horizontal + Cam.transform.forward * Vertical;
