@@ -22,8 +22,11 @@ public class Decisions : MonoBehaviour
     public void QuitGame()
     {
         Debug.Log("Quit");
-        EditorApplication.ExitPlaymode();
         Application.Quit();
+    }
+    public void Play(string gameScene)
+    {
+        SceneManager.LoadScene(gameScene);
     }
   
 }

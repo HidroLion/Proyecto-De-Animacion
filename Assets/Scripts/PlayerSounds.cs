@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerSounds : MonoBehaviour
 {
-    [SerializeField] AudioClip audioPasos, audioMuerte, audioRopa;
-    [SerializeField] AudioClip[] audioDaño;
+    [SerializeField] AudioClip audioPasos, audioRopa;
     AudioSource playerAudioSource;
     bool playingSteps;
 
