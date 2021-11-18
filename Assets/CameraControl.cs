@@ -45,7 +45,7 @@ public class CameraControl : MonoBehaviour
 
         //camera map Collision
 
-        Vector3 rayDirection = gameObject.transform.position- (lookAt.position);
+       Vector3 rayDirection = gameObject.transform.position- (lookAt.position);
        
         if (Physics.Raycast(lookAt.position, rayDirection, out RaycastHit hit))
         {

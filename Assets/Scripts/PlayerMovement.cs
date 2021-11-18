@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float Speed;
     public Animator anim;
     public Transform Cam;
-    public Transform hips;
+    public Transform hips,model ;
   
     // Start is called before the first frame update
     void Start()
@@ -24,8 +24,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
-        transform.rotation = Quaternion.Euler(0, Cam.transform.localRotation.eulerAngles.y+180, 0);
+
+        model.transform.rotation = Quaternion.Euler(90, Cam.transform.rotation.eulerAngles.y+180, 0);
         float Horizontal =  0; // Input.GetAxis("Horizontal") * Speed * Time.deltaTime;
         float Vertical = Input.GetAxis("Vertical") * Speed * Time.deltaTime;
         

@@ -105,31 +105,13 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
-      in configuration does not match rotation in animation file:\n\t'ORG-toe.L'
-      : rotation error = 11.203133 deg\n\t'ORG-toe.R' : rotation error = 11.840223
-      deg\n"
+    rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'RIG-max|Max_Idle' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'ORG-shoulder.R' has translation animation
-      that will be discarded.\n\t'ORG-f_ring.01.R' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'ORG-toe.L' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'RIG-max|Max_Walk' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'ORG-upper_arm.L'
-      has scale animation that will be discarded.\n\t'ORG-hand.L' has scale animation
-      that will be discarded.\n\t'ORG-f_ring.01.L' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'ORG-upper_arm.R' has
-      scale animation that will be discarded.\n\t'ORG-hand.R' has scale animation
-      that will be discarded.\n\t'ORG-f_ring.01.R' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'ORG-toe.L' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'ORG-toe.R'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 1
+    importConstraints: 0
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
