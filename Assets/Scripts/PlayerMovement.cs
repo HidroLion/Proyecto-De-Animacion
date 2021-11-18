@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         Movement.y = 0f;
 
       
-      
+   
         Controller.Move(Movement);
 
         if (Movement.magnitude != 0f)

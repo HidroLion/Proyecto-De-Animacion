@@ -15,6 +15,9 @@ ModelImporter:
   - first:
       74: 1023992570608409904
     second: DogWalk
+  - first:
+      74: 1023992570608409904
+    second: rig|Walk
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -44,7 +47,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: DogWalk
+      name: rig|Walk
       takeName: rig|Walk
       internalID: 0
       firstFrame: 0
@@ -55,7 +58,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
