@@ -40,7 +40,7 @@ public class DogBeaviour : MonoBehaviour
             float step = dogSpeed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(gameObject.transform.position, points[current].position, step);
             transform.LookAt(points[current].position);
-            if (Vector3.Distance(transform.position, lm.transform.position) < 15 && lm.dead==false)
+            if (Vector3.Distance(transform.position, lm.transform.position) < 10 && lm.dead==false)
             {
                 dogSpeed = 1;
                 anim.SetBool("Stealth", true);

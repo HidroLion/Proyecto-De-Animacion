@@ -11,17 +11,26 @@ public class CameraControl : MonoBehaviour
     public Transform lookAt;
 
     public Transform Player;
-  
+    public static CameraControl instance;
     public float distance = 10.0f;
     private float currentX = 0.0f;
     private float currentY = 0.0f;
     public float sensivity = 4.0f;
-
-
+    public bool isFighting = false;
+    public Transform[] camerapositions;
     // Start is called before the first frame update
     void Start()
     {
+        if (instance != null)
+        {
+            Destroy(this.gameObject);
 
+        }
+        else
+        {
+            instance = this;
+
+        }
         tempDistance = distance;
     }
 
@@ -31,25 +40,27 @@ public class CameraControl : MonoBehaviour
     Vector3 offset = new Vector3(0, 2, 0);
     private void Update()
     {
-        currentX += -Input.GetAxis("Mouse X") * sensivity * Time.deltaTime;
-        currentY += Input.GetAxis("Mouse Y") * sensivity * Time.deltaTime;
-
-        currentY = Mathf.Clamp(currentY, YMin, YMax);
-     
-        Vector3 Direction = new Vector3(0, 0, -tempDistance);
-        Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
-        transform.position = lookAt.position + rotation * Direction;
-
-        transform.LookAt(lookAt.position);
-
-
-        //camera map Collision
-
-       Vector3 rayDirection = gameObject.transform.position- (lookAt.position);
-       
-        if (Physics.Raycast(lookAt.position, rayDirection, out RaycastHit hit))
+        if (isFighting == false)
         {
-            Debug.Log(hit.collider.tag);
+            currentX += -Input.GetAxis("Mouse X") * sensivity * Time.deltaTime;
+            currentY += Input.GetAxis("Mouse Y") * sensivity * Time.deltaTime;
+
+            currentY = Mathf.Clamp(currentY, YMin, YMax);
+
+            Vector3 Direction = new Vector3(0, 0, -tempDistance);
+            Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
+            transform.position = lookAt.position + rotation * Direction;
+
+            transform.LookAt(lookAt.position);
+
+
+            //camera map Collision
+
+            Vector3 rayDirection = gameObject.transform.position - (lookAt.position);
+
+            if (Physics.Raycast(lookAt.position, rayDirection, out RaycastHit hit))
+            {
+                Debug.Log(hit.collider.tag);
                 if (hit.distance < distance)
                 {
                     tempDistance = hit.distance;
@@ -59,11 +70,25 @@ public class CameraControl : MonoBehaviour
                 {
                     tempDistance = distance;
                 }
-            
-           
+
+
+
+            }
+        }
+        else
+        {
+
+            PositionCamera();
 
         }
-       
+
+    }
+   public int currentFight=0;
+    public void PositionCamera()
+    {
+        gameObject.transform.position = camerapositions[currentFight].position;
+        gameObject.transform.rotation = camerapositions[currentFight].rotation;
+
     }
     private void OnDrawGizmos()
     {

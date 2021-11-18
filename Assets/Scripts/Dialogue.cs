@@ -11,7 +11,7 @@ public class Dialogue : MonoBehaviour
     public string[] sentences;
     bool DialogueActive;
     int currentSentence;
-   
+    
     public GameObject DialogueSquare;
    
     // Start is called before the first frame update
@@ -35,7 +35,7 @@ public class Dialogue : MonoBehaviour
 
     }
     public void SetDialogue(string[] _sentences) {
-       
+        CameraControl.instance.isFighting = true;
         DialogueSquare.SetActive(true);
         DialogueActive = true;
         sentences = _sentences;
@@ -61,6 +61,7 @@ public class Dialogue : MonoBehaviour
                 DialogueActive = false;
                 currentSentence = 0;
                 DialogueSquare.SetActive(false);
+            CameraControl.instance.isFighting = false;
             if (DecisionMaking.instance.enemy != null) {
                 DecisionMaking.instance.StartDecisionMaking();   
             }    

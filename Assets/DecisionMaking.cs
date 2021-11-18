@@ -8,6 +8,7 @@ public class DecisionMaking : MonoBehaviour
     GameObject[] options;
     public Animator playerAnim;
     public EnemyAnimationControl enemy;
+    
     public static DecisionMaking instance;
     public PlayerMovement pm;
     void Start()
@@ -31,12 +32,14 @@ public class DecisionMaking : MonoBehaviour
     public void Fight() {
         if (enemy.GetComponent<LavaMonsterBehaviour>() != null)
         {
+            CameraControl.instance.currentFight = 1;
             enemy.GetComponent<LavaMonsterBehaviour>().dead = true;
             pm.enabled = true;
             playerAnim.SetTrigger("Attack");
             enemy.RecieveDamage();
             runOption.SetActive(false);
             panel.SetActive(false);
+            
         }
         else
         {
