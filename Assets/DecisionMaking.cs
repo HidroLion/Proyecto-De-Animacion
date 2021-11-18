@@ -27,10 +27,25 @@ public class DecisionMaking : MonoBehaviour
 
     }
     public void Fight() {
-        playerAnim.SetTrigger("Attack");
-        enemy.RecieveDamage();
-        runOption.SetActive(false);
-        panel.SetActive(false);
+        if (enemy.GetComponent<LavaMonsterBehaviour>() != null)
+        {
+
+            playerAnim.SetTrigger("Attack");
+            enemy.RecieveDamage();
+            runOption.SetActive(false);
+            panel.SetActive(false);
+        }
+        else
+        {
+
+            playerAnim.SetTrigger("Attack");
+            playerAnim.SetInteger("AttackCombo", 1);
+            enemy.RecieveDamage();
+            runOption.SetActive(false);
+            panel.SetActive(false);
+
+        }
+      
 
     }
     public void Run()

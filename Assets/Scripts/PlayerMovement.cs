@@ -12,7 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public Animator anim;
     public Transform Cam;
     public Transform hips,model ;
-  
+    public Rigidbody rb;
+    bool floorattached = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,13 +33,13 @@ public class PlayerMovement : MonoBehaviour
         Vector3 Movement = Cam.transform.right * Horizontal + Cam.transform.forward * Vertical;
         Movement.y = 0f;
 
-
-
+      
+      
         Controller.Move(Movement);
 
         if (Movement.magnitude != 0f)
         {
-            anim.SetBool("Walking",true);
+            anim.SetFloat("YVel", Vertical);
             transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Cam.GetComponent<CameraControl>().sensivity * Time.deltaTime);
 
 
@@ -51,10 +52,17 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            anim.SetBool("Walking", false);
+            anim.SetFloat("YVel", 0);
 
         }
-
+        if (floorattached)
+        {if (Physics.Raycast(gameObject.transform.position, Vector3.down, out RaycastHit floorlevel)){
+                gameObject.transform.position = floorlevel.point;
+            }
+        }
+           
+          
+      
     }
 
 }
