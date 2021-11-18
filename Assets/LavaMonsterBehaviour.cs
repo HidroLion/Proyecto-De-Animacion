@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LavaMonsterBehaviour : EnemyAnimationControl
 {
+    Transform player;
+    public bool dead;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +15,7 @@ public class LavaMonsterBehaviour : EnemyAnimationControl
     // Update is called once per frame
     void Update()
     {
-        
+        transform.LookAt(player);
     }
     private void OnTriggerEnter(Collider other)
     {

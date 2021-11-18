@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ZombieBehaviour : EnemyAnimationControl
 {
-    
+    Transform player;
    
     void Start()
     {
@@ -14,6 +14,6 @@ public class ZombieBehaviour : EnemyAnimationControl
     // Update is called once per frame
     void Update()
     {
-        
+        transform.LookAt(player);
     }
 }

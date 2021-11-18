@@ -9,6 +9,7 @@ public class DecisionMaking : MonoBehaviour
     public Animator playerAnim;
     public EnemyAnimationControl enemy;
     public static DecisionMaking instance;
+    public PlayerMovement pm;
     void Start()
     {
         if (instance != null) { Destroy(this); } else { instance = this; }
@@ -16,7 +17,8 @@ public class DecisionMaking : MonoBehaviour
     }
     public void StartDecisionMaking()
     {
-
+        pm.enabled = false;
+        
         talkOption.GetComponentInChildren<TextMeshProUGUI>().text =enemy.talkOption;
         panel.SetActive(true);
       
@@ -24,12 +26,13 @@ public class DecisionMaking : MonoBehaviour
     public void SFinishDecisionMaking()
     {
         panel.SetActive(false);
-
+        pm.enabled = true;
     }
     public void Fight() {
         if (enemy.GetComponent<LavaMonsterBehaviour>() != null)
         {
-
+            enemy.GetComponent<LavaMonsterBehaviour>().dead = true;
+            pm.enabled = true;
             playerAnim.SetTrigger("Attack");
             enemy.RecieveDamage();
             runOption.SetActive(false);
@@ -37,7 +40,7 @@ public class DecisionMaking : MonoBehaviour
         }
         else
         {
-
+            pm.enabled = true;
             playerAnim.SetTrigger("Attack");
             playerAnim.SetInteger("AttackCombo", 1);
             enemy.RecieveDamage();
@@ -50,6 +53,7 @@ public class DecisionMaking : MonoBehaviour
     }
     public void Run()
     {
+        pm.enabled = true;
         playerAnim.SetTrigger("Run");
         runOption.SetActive(false);
         panel.SetActive(false);
@@ -57,6 +61,7 @@ public class DecisionMaking : MonoBehaviour
     }
     public void Talk()
     {
+        pm.enabled = true;
         playerAnim.SetTrigger("Talk");
         runOption.SetActive(false);
         string[] s = new string[1];

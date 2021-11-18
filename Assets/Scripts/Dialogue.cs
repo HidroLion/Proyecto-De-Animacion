@@ -11,7 +11,7 @@ public class Dialogue : MonoBehaviour
     public string[] sentences;
     bool DialogueActive;
     int currentSentence;
-    DogBeaviour dog;
+   
     public GameObject DialogueSquare;
    
     // Start is called before the first frame update
@@ -35,6 +35,7 @@ public class Dialogue : MonoBehaviour
 
     }
     public void SetDialogue(string[] _sentences) {
+       
         DialogueSquare.SetActive(true);
         DialogueActive = true;
         sentences = _sentences;
