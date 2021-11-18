@@ -7,7 +7,11 @@ public class PlayerInteraction : MonoBehaviour
 {
     [Header("Puerta")]
     [SerializeField] GameObject door;
+    [SerializeField] GameObject cameraObject;
+    [SerializeField] Transform cameraPos;
 
+    Transform cameraOldPosition;
+    CameraControl cameraControl;
     DoorController doorController;
 
     static bool interactiveArea;
@@ -15,38 +19,34 @@ public class PlayerInteraction : MonoBehaviour
     private void Start()
     {
         doorController = door.GetComponent<DoorController>();
-
+        cameraControl = cameraObject.GetComponent<CameraControl>();
+        
         interactiveArea = false;
-    }
-
-    private void Update()
-    {
-        if (interactiveArea)
-        {
-            if (Input.GetKey(KeyCode.F))
-            {
-                //Metodo que Activa el Puzzle
-
-                //TEST
-                doorController.OpenDoor();
-            }
-        }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             interactiveArea = true;
-            Debug.Log("Player in Area");
+            Debug.Log("[HidroLion] Player in Area");
+            cameraControl.sensivity = 0;
+            cameraControl.enabled = false;
+
+            cameraOldPosition = cameraObject.transform;
+            cameraObject.transform.position = cameraPos.position;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            interactiveArea = false;           
+            interactiveArea = false;
+            cameraControl.sensivity = -200;
+            cameraControl.enabled = true;
+
+            cameraObject.transform.position = cameraOldPosition.position;
         }
     }
     
