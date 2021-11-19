@@ -19,7 +19,13 @@ public class EnemyAnimationControl : MonoBehaviour
     {
         anim.SetTrigger("Attack");
     }
+    public void Talk()
+    {
+        anim.SetTrigger("Talk");
+
+    }
     public void StartDialogue(string[] _lines) {
+        
         Dialogue.instance.SetDialogue(_lines);
     }
     private void OnTriggerStay(Collider other)

@@ -32,14 +32,14 @@ public class DecisionMaking : MonoBehaviour
     public void Fight() {
         if (enemy.GetComponent<LavaMonsterBehaviour>() != null)
         {
-            CameraControl.instance.currentFight = 1;
+           
             enemy.GetComponent<LavaMonsterBehaviour>().dead = true;
             pm.enabled = true;
             playerAnim.SetTrigger("Attack");
             enemy.RecieveDamage();
             runOption.SetActive(false);
             panel.SetActive(false);
-            
+            CameraControl.instance.currentFight = 1;
         }
         else
         {
@@ -60,7 +60,8 @@ public class DecisionMaking : MonoBehaviour
         playerAnim.SetTrigger("Run");
         runOption.SetActive(false);
         panel.SetActive(false);
-
+        CameraControl.instance.currentFight = 1;
+        
     }
     public void Talk()
     {
@@ -71,10 +72,17 @@ public class DecisionMaking : MonoBehaviour
         s[0] = enemy.talkResponse;
         Dialogue.instance.SetDialogue(s);
         panel.SetActive(false);
+        enemy.Talk();
         enemy = null;
-    
+        StartCoroutine(wait());
     }
 
+   public IEnumerator wait()
+    {
+
+        yield return new WaitForSeconds(5);
+        CameraControl.instance.currentFight = 1;
+    }
     void Update()
     {
         

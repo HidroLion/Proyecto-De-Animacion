@@ -61,9 +61,11 @@ public class Dialogue : MonoBehaviour
                 DialogueActive = false;
                 currentSentence = 0;
                 DialogueSquare.SetActive(false);
+           
             CameraControl.instance.isFighting = false;
             if (DecisionMaking.instance.enemy != null) {
-                DecisionMaking.instance.StartDecisionMaking();   
+                DecisionMaking.instance.StartDecisionMaking();
+              
             }    
             }
        
@@ -76,13 +78,6 @@ public class Dialogue : MonoBehaviour
             NextSentence();
 
         }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            string[] s = new string[3];
-            s[0] = "aaaaaaaaaaa";
-            s[1] = "bbbbbbbbb";
-            s[2] = "cccccccccccc";
-            SetDialogue(s);
-        }
+        
     }
 }

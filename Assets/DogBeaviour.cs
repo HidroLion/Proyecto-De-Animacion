@@ -42,14 +42,14 @@ public class DogBeaviour : MonoBehaviour
             transform.LookAt(points[current].position);
             if (Vector3.Distance(transform.position, lm.transform.position) < 10 && lm.dead==false)
             {
-                dogSpeed = 1;
+                dogSpeed = 2;
                 anim.SetBool("Stealth", true);
 
 
             }
             else
             {
-                dogSpeed = 4;
+                dogSpeed = 3.5f;
                 anim.SetBool("Stealth", false);
 
             }

@@ -14,12 +14,14 @@ public class PlayerMovement : MonoBehaviour
     public Transform hips,model ;
     public Rigidbody rb;
     bool floorattached = true;
+    Transform lm,zombie;
     // Start is called before the first frame update
     void Start()
     {
 
         Controller = GetComponent<CharacterController>();
-     
+        lm = FindObjectOfType<LavaMonsterBehaviour>().transform;
+        zombie = FindObjectOfType<ZombieBehaviour>().transform;
     }
 
     // Update is called once per frame
@@ -60,9 +62,13 @@ public class PlayerMovement : MonoBehaviour
                 gameObject.transform.position = floorlevel.point;
             }
         }
-           
-          
-      
+
+        if (Vector3.Distance(transform.position, lm.position)<10&& Vector3.Distance(transform.position, lm.position) > 4) {
+            anim.SetBool("Stealth", true);
+        }
+        else { anim.SetBool("Stealth", false); }
+
+       
     }
 
 }
